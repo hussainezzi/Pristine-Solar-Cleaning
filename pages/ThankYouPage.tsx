@@ -1,4 +1,6 @@
-
+/**
+ * A confirmation page shown to the user after they submit the quote request form.
+ */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -8,6 +10,7 @@ const ThankYouPage: React.FC = () => {
     <div className="flex items-center justify-center min-h-[60vh] bg-slate-50 py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
+            // Animate the content with a spring-like effect on page load.
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, type: 'spring' }}

@@ -1,4 +1,7 @@
-
+/**
+ * Main application component.
+ * Sets up the routing structure for the entire website.
+ */
 import React, { useEffect } from 'react';
 import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
@@ -10,6 +13,10 @@ import QuotePage from './pages/QuotePage';
 import ContactPage from './pages/ContactPage';
 import ThankYouPage from './pages/ThankYouPage';
 
+/**
+ * A utility component that scrolls the window to the top whenever the route changes.
+ * This is essential for a smooth user experience in single-page applications.
+ */
 const ScrollToTop = () => {
   const { pathname } = useLocation();
 
@@ -20,6 +27,10 @@ const ScrollToTop = () => {
   return null;
 };
 
+/**
+ * The root component of the application.
+ * It wraps all pages with a consistent Header and Footer and defines the routes.
+ */
 const App: React.FC = () => {
   return (
     <HashRouter>

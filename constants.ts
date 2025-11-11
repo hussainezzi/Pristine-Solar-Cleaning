@@ -1,5 +1,12 @@
+/**
+ * This file contains shared constants used throughout the application.
+ * Centralizing these values makes the code easier to maintain and update.
+ */
+
+// Base URL for Cloudinary images. Used by the LazyImage component.
 export const CLOUDINARY_BASE_URL = "https://res.cloudinary.com/demo/image/upload";
 
+// Navigation links for the header and footer menus.
 export const NAV_LINKS = [
   { name: 'Home', path: '/' },
   { name: 'Services', path: '/services' },
@@ -7,6 +14,7 @@ export const NAV_LINKS = [
   { name: 'Contact', path: '/contact' },
 ];
 
+// A collection of image public IDs or full URLs used across the site.
 export const IMAGES = {
   hero: 'c_scale,w_1800,f_auto,q_auto/solar-panels-on-roof',
   logo: 'c_scale,w_200,f_auto,q_auto/logos/logo-white',
@@ -20,6 +28,7 @@ export const IMAGES = {
   map: 'c_scale,w_1200,f_auto,q_auto/sample_map',
 };
 
+// Details for the cleaning services offered.
 export const SERVICES = [
   {
     icon: 'home',
@@ -45,6 +54,7 @@ export const SERVICES = [
   }
 ];
 
+// Customer testimonials for use on the homepage.
 export const TESTIMONIALS = [
   {
     quote: "Pristine Solar Cleaning's service was exceptional. Our energy output increased by almost 15% after their first visit. Highly professional and worth every penny.",
@@ -63,6 +73,7 @@ export const TESTIMONIALS = [
   }
 ];
 
+// Key selling points for the "Why Choose Us" page.
 export const WHY_CHOOSE_US_POINTS = [
   {
     icon: 'shield',
@@ -86,6 +97,7 @@ export const WHY_CHOOSE_US_POINTS = [
   }
 ];
 
+// Frequently Asked Questions for the Contact page.
 export const FAQS = [
   {
     question: 'How often should I get my solar panels cleaned?',

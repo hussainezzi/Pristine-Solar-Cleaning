@@ -1,12 +1,16 @@
+/**
+ * The Services page, providing detailed information about residential and commercial
+ * cleaning services, as well as the company's cleaning process.
+ */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { IMAGES, SERVICES } from '../constants';
 import AnimatedSection from '../components/AnimatedSection';
 import LazyImage from '../components/LazyImage';
-// Fix: Import 'motion' from 'framer-motion' to fix 'Cannot find name motion' errors.
 import { motion } from 'framer-motion';
 
 const ServicesPage: React.FC = () => {
+    // Data for the 4-step cleaning process section.
     const processSteps = [
         { icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z', title: '1. Inspection', description: 'We start with a thorough assessment of your panels to identify any specific issues or heavy soiling areas.' },
         { icon: 'M7 16V4m0 12L3 8m4 8l4-8', title: '2. Pre-Rinse', description: 'A gentle, low-pressure rinse removes loose dirt and debris without harming the panel surface.' },
@@ -16,6 +20,7 @@ const ServicesPage: React.FC = () => {
 
   return (
     <div>
+      {/* Page Header */}
       <section className="bg-brand-blue-700 text-white py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 className="text-4xl md:text-5xl font-bold">Our Cleaning Services</motion.h1>
@@ -25,6 +30,7 @@ const ServicesPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Residential Service Section */}
       <AnimatedSection className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -45,6 +51,7 @@ const ServicesPage: React.FC = () => {
         </div>
       </AnimatedSection>
       
+      {/* Commercial Service Section */}
       <AnimatedSection className="py-20 bg-slate-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -65,6 +72,7 @@ const ServicesPage: React.FC = () => {
         </div>
       </AnimatedSection>
 
+      {/* Cleaning Process Section */}
       <AnimatedSection className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
            <div className="text-center mb-12">
@@ -87,6 +95,7 @@ const ServicesPage: React.FC = () => {
         </div>
       </AnimatedSection>
 
+      {/* Call to Action Section */}
       <AnimatedSection className="bg-brand-blue-50 py-20 text-center">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-slate-900">Ready to Boost Your Solar Output?</h2>

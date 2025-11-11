@@ -1,3 +1,7 @@
+/**
+ * The "Why Choose Us" page.
+ * It highlights the company's values, team, and provides visual proof of results.
+ */
 import React from 'react';
 import { IMAGES, WHY_CHOOSE_US_POINTS } from '../constants';
 import AnimatedSection from '../components/AnimatedSection';
@@ -8,6 +12,7 @@ import ServiceCard from '../components/ServiceCard';
 const WhyChooseUsPage: React.FC = () => {
   return (
     <div>
+      {/* Intro Section */}
       <section className="bg-slate-50 py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -22,6 +27,7 @@ const WhyChooseUsPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Core Values Section */}
       <AnimatedSection className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -36,6 +42,7 @@ const WhyChooseUsPage: React.FC = () => {
         </div>
       </AnimatedSection>
 
+      {/* Results Section with Before/After Cards */}
       <AnimatedSection className="py-20 bg-brand-blue-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">

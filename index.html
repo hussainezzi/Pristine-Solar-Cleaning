@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
+      // Tailwind CSS configuration script.
+      // Extends the default theme with custom fonts and brand colors.
       tailwind.config = {
         theme: {
           extend: {
@@ -48,6 +50,11 @@
         }
       }
     </script>
+  <!-- 
+    The importmap is used to define module specifiers for JavaScript imports.
+    This allows us to use bare module specifiers (e.g., "react") and have the browser 
+    resolve them to full URLs, fetching them from a CDN.
+  -->
   <script type="importmap">
 {
   "imports": {

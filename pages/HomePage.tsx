@@ -1,3 +1,7 @@
+/**
+ * The main landing page for the website.
+ * It includes a hero section, an overview of services, and customer testimonials.
+ */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -8,16 +12,18 @@ import ServiceCard from '../components/ServiceCard';
 import TestimonialCard from '../components/TestimonialCard';
 
 const HomePage: React.FC = () => {
+  // Framer Motion variants for creating a staggered animation effect on child elements.
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.2 // Each child will animate 0.2s after the previous one.
       }
     }
   };
 
+  // Framer Motion variants for individual items within a staggered container.
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 }
@@ -30,6 +36,7 @@ const HomePage: React.FC = () => {
         className="relative bg-cover bg-center text-white"
         style={{ backgroundImage: `url(${IMAGES.after1})` }}
       >
+        {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-48 relative z-10">
           <motion.div
@@ -68,13 +75,14 @@ const HomePage: React.FC = () => {
         </div>
       </AnimatedSection>
       
-      {/* Services Overview */}
+      {/* Services Overview Section */}
       <AnimatedSection className="py-20 bg-slate-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Our Professional Services</h2>
               <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">Tailored solutions for every type of solar installation.</p>
             </div>
+            {/* Residential Service */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div className="text-center md:text-left">
                   <h3 className="text-2xl font-bold text-brand-blue-700 mb-4">{SERVICES[0].title}</h3>
@@ -83,6 +91,7 @@ const HomePage: React.FC = () => {
                 </div>
                 <LazyImage publicId={IMAGES.serviceResidential} alt="Residential solar panels" className="rounded-lg shadow-xl w-full h-auto"/>
             </div>
+            {/* Commercial Service */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
                 <LazyImage publicId={IMAGES.serviceCommercial} alt="Commercial solar panels" className="rounded-lg shadow-xl w-full h-auto order-last md:order-first"/>
                 <div className="text-center md:text-left">

@@ -1,17 +1,23 @@
+/**
+ * The main header component for the website.
+ * Features a responsive navigation bar that collapses into a hamburger menu on smaller screens.
+ */
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { NAV_LINKS } from '../constants';
-import LazyImage from './LazyImage';
 
 const Header: React.FC = () => {
+  // State to manage the visibility of the mobile menu.
   const [isOpen, setIsOpen] = useState(false);
 
+  // Style object for the active navigation link.
   const activeLinkStyle = {
-    color: '#008eec',
+    color: '#008eec', // A distinct color to highlight the current page.
     fontWeight: '600',
   };
 
+  // Animation variants for the mobile menu using Framer Motion.
   const menuVariants = {
     closed: { opacity: 0, y: -20 },
     open: { opacity: 1, y: 0 },
@@ -21,6 +27,7 @@ const Header: React.FC = () => {
     <header className="bg-brand-blue-700 text-white sticky top-0 z-50 shadow-md">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
+          {/* Logo and Company Name */}
           <Link to="/" className="flex-shrink-0">
              <div className="flex items-center space-x-2">
                  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-amber-300" viewBox="0 0 20 20" fill="currentColor">
@@ -31,11 +38,13 @@ const Header: React.FC = () => {
              </div>
           </Link>
 
+          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {NAV_LINKS.map((link) => (
               <NavLink
                 key={link.name}
                 to={link.path}
+                // Apply active style when the link's path matches the current URL.
                 style={({ isActive }) => (isActive ? activeLinkStyle : {})}
                 className="text-white hover:text-amber-300 transition-colors duration-300 font-medium"
               >
@@ -44,18 +53,22 @@ const Header: React.FC = () => {
             ))}
           </nav>
           
+          {/* Desktop Call-to-Action Button */}
           <div className="hidden lg:block">
             <Link to="/quote" className="bg-amber-400 hover:bg-amber-500 text-brand-blue-900 font-bold py-2 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105 duration-300">
               Get a Free Quote
             </Link>
           </div>
 
+          {/* Mobile Menu Button (Hamburger) */}
           <div className="lg:hidden">
             <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none">
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isOpen ? (
+                  // Close icon (X) when menu is open
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
+                  // Hamburger icon when menu is closed
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
                 )}
               </svg>
@@ -63,6 +76,7 @@ const Header: React.FC = () => {
           </div>
         </div>
         
+        {/* Mobile Menu (Animated) */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -78,7 +92,7 @@ const Header: React.FC = () => {
                   <NavLink
                     key={link.name}
                     to={link.path}
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => setIsOpen(false)} // Close menu on link click
                     style={({ isActive }) => (isActive ? activeLinkStyle : {})}
                     className="text-white hover:text-amber-300 transition-colors duration-300 font-medium text-lg"
                   >

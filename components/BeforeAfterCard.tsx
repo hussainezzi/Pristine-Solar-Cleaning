@@ -1,4 +1,7 @@
-
+/**
+ * A component that displays a side-by-side "before" and "after" image comparison.
+ * Ideal for visually demonstrating the effectiveness of a service.
+ */
 import React from 'react';
 import LazyImage from './LazyImage';
 

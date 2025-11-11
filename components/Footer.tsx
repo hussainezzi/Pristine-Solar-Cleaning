@@ -1,8 +1,13 @@
+/**
+ * The main footer component for the website.
+ * Contains navigation links, service summaries, contact info, and social media links.
+ */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { NAV_LINKS } from '../constants';
 
 const Footer: React.FC = () => {
+  // Data for social media links. The `icon` property contains SVG path data.
   const socialLinks = [
     { icon: 'M22.672 1.61C22.672 1.61 22.38 1.512 22.14.51c-1.08-.47-2.34-.47-2.34-.47S18.51.012 10 .012S.012.54.012.54s-1.26.03-2.34.47C-2.1.51-2.37 1.61-2.37 1.61s-.3 1.41-.3 4.29v4.23c0 2.88.3 4.29.3 4.29s.27 1.1.51 1.1c1.08.44 2.34.47 2.34.47s1.29.5 9.78.5c8.49 0 9.78-.5 9.78-.5s1.26-.03 2.34-.47c.24-.998.51-1.1.51-1.1s.3-1.41.3-4.29v-4.23c0-2.88-.3-4.29-.3-4.29z', name: 'YouTube' },
     { icon: 'M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z', name: 'Twitter' },
@@ -13,6 +18,8 @@ const Footer: React.FC = () => {
     <footer className="bg-brand-blue-900 text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          
+          {/* Company Info and Social Links */}
           <div className="md:col-span-1">
             <h3 className="text-xl font-bold mb-4 text-amber-300">Pristine Solar Cleaning</h3>
             <p className="text-slate-300">Maximizing your energy with professional, eco-friendly solar panel cleaning services.</p>
@@ -24,6 +31,8 @@ const Footer: React.FC = () => {
               ))}
             </div>
           </div>
+
+          {/* Quick Links Navigation */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
@@ -35,6 +44,8 @@ const Footer: React.FC = () => {
                <li><Link to="/quote" className="text-slate-300 hover:text-amber-300 transition-colors duration-300">Get a Quote</Link></li>
             </ul>
           </div>
+
+          {/* Services Links */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2">
@@ -42,6 +53,8 @@ const Footer: React.FC = () => {
               <li><Link to="/services" className="text-slate-300 hover:text-amber-300 transition-colors duration-300">Commercial Cleaning</Link></li>
             </ul>
           </div>
+
+          {/* Contact Information */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-2 text-slate-300">
@@ -51,6 +64,8 @@ const Footer: React.FC = () => {
             </ul>
           </div>
         </div>
+        
+        {/* Copyright Notice */}
         <div className="mt-12 pt-8 border-t border-brand-blue-800 text-center text-slate-400">
           <p>&copy; {new Date().getFullYear()} Pristine Solar Cleaning. All Rights Reserved.</p>
         </div>

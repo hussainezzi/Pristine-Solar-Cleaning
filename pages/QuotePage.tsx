@@ -1,10 +1,14 @@
-
+/**
+ * The "Get a Quote" page.
+ * Contains a form that collects user information and sends it via WhatsApp.
+ */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const QuotePage: React.FC = () => {
   const navigate = useNavigate();
+  // State to hold all form field values.
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -17,6 +21,10 @@ const QuotePage: React.FC = () => {
     message: '',
   });
 
+  /**
+   * A generic change handler for all form inputs.
+   * It updates the corresponding field in the formData state.
+   */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
@@ -24,10 +32,15 @@ const QuotePage: React.FC = () => {
     });
   };
   
+  /**
+   * Handles the form submission.
+   * It constructs a WhatsApp message with the form data and opens it in a new tab.
+   */
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevent the default form submission (page reload).
     
-    const phoneNumber = "923117527353";
+    const phoneNumber = "923117527353"; // The target WhatsApp number.
+    // Construct the message string using the form data.
     const message = `
 *New Quote Request from Pristine Solar Cleaning Website*
 
@@ -40,13 +53,15 @@ const QuotePage: React.FC = () => {
 *Number of Panels:* ${formData.numberOfPanels || 'N/A'}
 *Mounting Type:* ${formData.mountingType}
 *Message:* ${formData.message || 'No additional details provided.'}
-    `.trim().replace(/\n\s*\n/g, '\n'); // Clean up whitespace for the URL
+    `.trim().replace(/\n\s*\n/g, '\n'); // Clean up extra whitespace for URL encoding.
 
+    // Use encodeURIComponent to ensure the message is correctly formatted for a URL.
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
+    // Open the constructed URL in a new browser tab.
     window.open(whatsappUrl, '_blank');
 
-    // Navigate to thank you page after attempting to open WhatsApp
+    // Redirect the user to the thank-you page after submitting.
     navigate('/thank-you');
   };
 
